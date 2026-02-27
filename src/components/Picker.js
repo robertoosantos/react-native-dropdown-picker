@@ -13,18 +13,18 @@ import {
   ActivityIndicator,
   BackHandler,
   Dimensions,
+  FlatList,
   Image,
   Modal,
   Platform,
   SafeAreaView,
+  ScrollView,
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
 } from 'react-native';
-
-import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import {
   ASCII_CODE,
   BADGE_COLORS,
