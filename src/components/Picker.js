@@ -906,12 +906,33 @@ function Picker({
   );
 
   /**
+   * The overflow style for the container.
+   * On Android, Views clip touch events to their bounds by default
+   * (overflow: 'hidden'). Since the dropdown is absolutely positioned and
+   * extends beyond the container, we need overflow: 'visible' so that
+   * touch events reach the dropdown items.
+   * @returns {object}
+   */
+  const overflowContainer = useMemo(
+    () =>
+      Platform.OS === 'android' && {
+        overflow: 'visible',
+      },
+    [],
+  );
+
+  /**
    * The container style.
    * @returns {object}
    */
   const _containerStyle = useMemo(
-    () => [THEME.container, zIndexContainer, ...[containerStyle].flat()],
-    [zIndexContainer, containerStyle, THEME],
+    () => [
+      THEME.container,
+      zIndexContainer,
+      overflowContainer,
+      ...[containerStyle].flat(),
+    ],
+    [zIndexContainer, overflowContainer, containerStyle, THEME],
   );
 
   /**
