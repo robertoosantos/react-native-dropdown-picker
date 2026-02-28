@@ -202,6 +202,7 @@ function RenderListItem({
       style={_listItemContainerStyle}
       onPress={__onPress}
       onLayout={onLayout}
+      delayPressIn={50}
       {...props}
       disabled={selectable === false || disabled}
       testID={item.testID}>
