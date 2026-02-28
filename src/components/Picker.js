@@ -1866,6 +1866,7 @@ function Picker({
         ref={flatListRef}
         style={styles.flex}
         contentContainerStyle={THEME.flatListContentContainer}
+        nestedScrollEnabled
         ListEmptyComponent={_ListEmptyComponent}
         data={_items}
         renderItem={__renderListItem}
