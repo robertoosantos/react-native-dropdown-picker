@@ -5,6 +5,7 @@ import JavascriptClassExample from './example-src-files/javascript-class-example
 import JavascriptFunctionExample from './example-src-files/javascript-function-example';
 import TypescriptClassExample from './example-src-files/typescript-class-example';
 import TypescriptFunctionExample from './example-src-files/typescript-function-example';
+import PaperDialogExample from './example-src-files/paper-dialog-example';
 
 enum ExampleComponent {
   JavaScriptClassSingleValue,
@@ -15,6 +16,7 @@ enum ExampleComponent {
   TypeScriptClassMultiValue,
   TypeScriptFunctionSingleValue,
   TypeScriptFunctionMultiValue,
+  PaperDialog,
 }
 
 const styles = StyleSheet.create({
@@ -63,6 +65,10 @@ const EXAMPLE_COMPONENT_ITEMS: Array<ItemType<ExampleComponent>> = [
     label: 'TypeScript; function component; multiple-item',
     value: ExampleComponent.TypeScriptFunctionMultiValue,
   },
+  {
+    label: 'Paper Dialog; dropdown in Portal > Dialog > ScrollArea',
+    value: ExampleComponent.PaperDialog,
+  },
 ];
 
 type Props = Record<string, never>;
@@ -104,6 +110,8 @@ export default class App extends React.Component<Props, State> {
         return <TypescriptFunctionExample multiple={false} />;
       case ExampleComponent.TypeScriptFunctionMultiValue:
         return <TypescriptFunctionExample multiple />;
+      case ExampleComponent.PaperDialog:
+        return <PaperDialogExample />;
       default:
         throw new Error(
           "couldn't match example component in getExample() in App.tsx. egComponent was: ",
